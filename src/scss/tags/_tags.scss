@@ -1,0 +1,52 @@
+body{
+
+    font-size       : 16px;
+    line-height     : normal;
+    font-family     : $text-font;
+
+    padding: 0 20px;
+    height: auto;
+    background-color: $light-color;
+
+}
+
+ul{
+    
+    list-style-type: none;
+}
+
+img{
+
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    
+    color: $dark-color;
+    text-transform: none;
+
+}
+
+p{
+
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    padding-bottom: 20px;
+    font-size: inherit;
+    line-height: inherit;
+
+}
+
+a{
+    display: inline-block;
+    width: auto;
+    color: inherit;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    color: $active-light;
+}
