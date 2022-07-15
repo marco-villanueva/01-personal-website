@@ -1,0 +1,15 @@
+.c-contact-cta {
+
+  column-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+
+  &__item {
+    font-size: 1.3rem;
+
+    svg:hover {
+      color: $active-light;
+    }
+  }
+  
+}
