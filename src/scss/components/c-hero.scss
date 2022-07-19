@@ -1,0 +1,38 @@
+.c-hero {
+  width: 100%;
+  min-height: 400px;
+  padding: 50px;
+  background-image: url(https://cdn.pixabay.com/photo/2016/11/29/09/38/adult-1868750_960_720.jpg);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__info-container{
+    width: 50%;
+
+  }
+
+  &__titles-container{
+    font-family: $name-font;
+    font-size: 4rem;
+    font-weight:bolder;
+    line-height: 4rem;
+    color: $dark-color;    
+  }
+
+  &__title-line-2 span{
+    color: $active-light;
+  }
+
+  &__description {
+    margin-top: 1rem;
+    font-family: $text-font;
+    font-size: large;
+  }
+
+  &__buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+}
