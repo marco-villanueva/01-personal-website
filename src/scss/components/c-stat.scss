@@ -1,0 +1,18 @@
+.c-stat {
+  font-family: $principal-font;
+  display: grid;
+  grid-template-columns: min-content min-content;
+  align-items: center;
+  column-gap: 0.5rem;
+
+  &__big-text {
+    font-size: 3rem;
+    color: $active-dark;
+  }
+  
+  &__small-text {
+    font-size: 1.2rem;
+    line-height: 1rem;
+    color: darken($light-color, 20%)
+  }
+}

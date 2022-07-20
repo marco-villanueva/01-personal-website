@@ -1,0 +1,35 @@
+.c-about {
+  background-color: $dark-color;
+  color: $light-color;
+  display: grid;
+  font-family: $text-font;
+  justify-items: center;
+  padding: 3rem 1.1rem;
+  row-gap: 2rem;
+
+  &__title {
+    font-family: $principal-font;
+    font-size: 2rem;
+  }
+
+  &__description {
+    color: darken($light-color, 10%);
+    line-height: 1.5rem;
+    text-align: center;
+    width: 80%;
+    @media (max-width: $mobile-screen) {
+      width: 95%;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    column-gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media (max-width: $mobile-screen) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+}
