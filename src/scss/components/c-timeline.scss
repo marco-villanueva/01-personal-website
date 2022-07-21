@@ -1,0 +1,21 @@
+.c-timeline {
+  font-family: $text-font;
+  color: lighten($dark-color, 10%);
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__description {
+    margin-top: 0.8rem;
+  }
+
+  &__date{
+    color: lighten($dark-color, 20%);
+  }
+
+  &__date-box{
+    align-self: center;
+  }
+
+}
