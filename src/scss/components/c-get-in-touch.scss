@@ -1,0 +1,29 @@
+.c-get-in-touch {
+  background-color: $dark-color;
+  color: $light-color;
+  display: grid;
+  font-family: $text-font;
+  justify-items: center;
+  padding: 3rem 1.1rem 5rem 1.1rem;
+  row-gap: 2rem;
+
+  &__title {
+    font-family: $principal-font;
+    font-size: 2rem;
+  }
+
+  &__form{
+    display: grid;
+  }
+
+  &__description {
+    color: darken($light-color, 10%);
+    line-height: 1.5rem;
+    text-align: center;
+    width: 80%;
+    @media (max-width: $mobile-screen) {
+      width: 95%;
+    }
+  }
+
+}
