@@ -1,8 +1,8 @@
 import { ExperienceTimeline } from '../Timeline';
 
-export const Experience = () => {
+export const Experience = ({reference}) => {
   return (
-    <div className="c-experience">
+    <div ref={reference} className="c-experience">
       <div className="c-experience__title">
         Experience
       </div>

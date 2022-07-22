@@ -1,8 +1,8 @@
 import { Button } from "../Button"
 
-export const Hero = () => {
+export const Hero = ({reference}) => {
   return (
-    <div className="c-hero">
+    <div ref={reference} className="c-hero">
       <div className="c-hero__info-container">
         <div className="c-hero__titles-container">
           <div className="c-hero__title-line-1">

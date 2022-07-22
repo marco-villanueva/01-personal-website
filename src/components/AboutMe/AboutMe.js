@@ -1,9 +1,9 @@
 import { Skills } from "../Skills"
 import { Stat } from "../Stat"
 
-export const AboutMe = () => {
+export const AboutMe = ({reference}) => {
   return (
-    <div className="c-about">
+    <div ref={reference} className="c-about">
       <div className="c-about__title">
         About Me
       </div>

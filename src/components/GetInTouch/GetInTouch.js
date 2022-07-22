@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Button } from "../Button"
 
-export const GetInTouch = () => {
+export const GetInTouch = forwardRef(({}, ref) => {
 
   const [toSend, setToSend] = useState({
     from_name: '',
@@ -26,7 +26,7 @@ export const GetInTouch = () => {
   };
 
   return (
-    <div className='c-get-in-touch'>
+    <div className='c-get-in-touch' ref={ref}>
       <div className="c-get-in-touch__title">Get in touch</div>
 
       <form className="c-get-in-touch__form">
@@ -65,4 +65,4 @@ export const GetInTouch = () => {
       </form>
     </div>
   );
-};
+});
