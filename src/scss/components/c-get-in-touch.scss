@@ -14,6 +14,7 @@
 
   &__form{
     display: grid;
+    max-width: 600px;
   }
 
   &__description {
@@ -24,6 +25,11 @@
     @media (max-width: $mobile-screen) {
       width: 95%;
     }
+  }
+
+  &__button-container{
+    display:grid;
+    padding: 0.25rem;
   }
 
 }

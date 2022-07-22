@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { Button } from "../Button"
 
 export const GetInTouch = () => {
 
@@ -28,7 +29,7 @@ export const GetInTouch = () => {
     <div className='c-get-in-touch'>
       <div className="c-get-in-touch__title">Get in touch</div>
 
-      <form onSubmit={onSubmit} className="c-get-in-touch__form">
+      <form className="c-get-in-touch__form">
         <input
           type='text'
           name='from_name'
@@ -39,19 +40,28 @@ export const GetInTouch = () => {
 
         <input
           type='text'
-          name='message'
-          placeholder='Your message'
-          value={toSend.message}
-          onChange={handleChange}
-        />
-        <input
-          type='text'
           name='reply_to'
           placeholder='Your email'
           value={toSend.reply_to}
           onChange={handleChange}
         />
-        <button type='submit'>Submit</button>
+
+        <textarea
+          name="message"
+          placeholder='Your message'
+          value={toSend.message}
+          onChange={handleChange}
+          rows="6" cols="50"
+        />
+        <div className='c-get-in-touch__button-container'>
+          <Button
+            description="Send my message"
+            theme="primary"
+            action="contact"
+            onClick={onSubmit}
+          />
+        </div>
+
       </form>
     </div>
   );

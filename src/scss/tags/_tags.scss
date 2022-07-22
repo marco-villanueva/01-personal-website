@@ -57,3 +57,26 @@ button {
     cursor: pointer;
     white-space: nowrap;
 }
+
+input, textarea{
+    writing-mode: horizontal-tb !important;
+    font-family: $text-font;
+    text-rendering: auto;
+    color: $dark-color;
+    line-height:2rem;
+    text-align:center;
+    cursor: text;
+    background-color: $light-color;
+    margin: 5px;
+    padding: 1px 2px;
+    border-width: 0;
+    border-style:solid;
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+textarea{
+    text-align:justify;
+    padding: 5px;
+    resize: none;
+}
