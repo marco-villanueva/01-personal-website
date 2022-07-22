@@ -1,0 +1,53 @@
+.c-desktop-menu {
+  column-gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(5, min-content);
+
+  &__item {
+    font-family: $principal-font;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: capitalize;
+
+    &:hover {
+      color: $active-light;
+      text-decoration: solid underline
+        $active-light 2px;
+    }
+  }
+}
+
+.c-mobile-menu {
+  &__modal {
+    display: grid;
+    grid-template-rows: min-content 1fr 1fr 1fr 1fr;
+    position: absolute;
+    width: 80vw;
+    height: 40vh;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background: rgba($active-light, 0.95);
+    border-radius: 10px;
+  }
+
+  &__item {
+    color: $light-color;
+    font-family: $principal-font;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: capitalize;
+
+    &:hover {
+      text-decoration: solid underline
+        $light-color 2px;
+    }
+  }
+
+  &__close{
+    justify-self: right;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    color: white;
+  }
+}
