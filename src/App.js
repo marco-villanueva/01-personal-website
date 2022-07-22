@@ -13,7 +13,7 @@ function App() {
   const { homeSection, aboutSection, experienceSection, contactSection } = sections;
 
   return (
-    <Layout>+
+    <Layout>
       <Hero reference={homeSection} />
       <AboutMe reference={aboutSection} />
       <Experience reference={experienceSection} />
