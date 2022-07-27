@@ -19,7 +19,7 @@
   }
 
   @media (max-width: $tablet-screen) {
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: min-content min-content;
 
     &__logo {
@@ -27,12 +27,14 @@
     }
 
     &__menu {
-      grid-column: 3/4;
+      grid-column: 2/3;
+      justify-self: end;
     }
 
     &__contact {
-      grid-column: 3/4;
+      grid-column: 2/3;
       grid-row: 2/3;
+      justify-self: end;
     }
   }
 }

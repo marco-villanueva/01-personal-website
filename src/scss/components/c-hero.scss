@@ -2,25 +2,43 @@
   width: 100%;
   min-height: 500px;
   padding: 70px;
-  background-image: url(https://cdn.pixabay.com/photo/2016/11/29/09/38/adult-1868750_960_720.jpg);
-  background-position: right;
+  background-image: url('../../assets/foto_shadow_1.webp'),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgb(0, 0, 0) 120%
+    );
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
 
-  &__info-container{
-    width: 50%;
-
+  @media (max-width: $tablet-screen) {
+    max-width: 100vw;
+    padding: 1rem;
   }
 
-  &__titles-container{
+  &__info-container {
+    width: 50%;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+
+    @media (max-width: $tablet-screen) {
+      width: 90vw;
+      padding: 1rem;
+    }
+  }
+
+  &__titles-container {
     font-family: $name-font;
     font-size: 4rem;
-    font-weight:bolder;
+    font-weight: bolder;
     line-height: 4rem;
-    color: $dark-color;    
+    color: $dark-color;
   }
 
-  &__title-line-2 span{
+  &__title-line-2 span {
     color: $active-light;
   }
 
