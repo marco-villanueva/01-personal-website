@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import navContext from "../../contexts/navContext";
-import { Button } from "../Button"
+import { Button } from "../Button";
+import CV from '../../assets/MarcoVillanueva_Resume.pdf'
 
-export const Hero = ({reference}) => {
+export const Hero = ({ reference }) => {
 
   const { scrollDown, sections } = useContext(navContext);
   const { contactSection } = sections;
@@ -23,7 +24,9 @@ export const Hero = ({reference}) => {
         </div>
         <div className="c-hero__buttons">
           <Button description="Get in touch" theme="primary" action="contact" onClick={() => scrollDown(contactSection)} />
-          <Button description="Download CV" theme="light" action="download" />
+          <a href={CV} target="_blank" rel="noreferrer">
+            <Button description="Download CV" theme="light" action="download" />
+          </a>
         </div>
       </div>
     </div>

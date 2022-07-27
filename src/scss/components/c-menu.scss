@@ -29,6 +29,7 @@
     transform: translate(-50%, -30%);
     background: rgba($active-light, 0.95);
     border-radius: 10px;
+    z-index: 10;
   }
 
   &__item {
