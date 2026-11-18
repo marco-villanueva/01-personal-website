@@ -1,0 +1,6 @@
+export const experience = [
+  { company:'Digitex LTD', period:'2025 — Present', role:{en:'Fullstack Developer · Frontend Specialist',es:'Desarrollador fullstack · Especialista frontend'}, note:{en:'Web platforms, product interfaces and fullstack development.',es:'Plataformas web, interfaces de producto y desarrollo fullstack.'} },
+  { company:'Globant', period:'2021 — 2025', role:{en:'Frontend Engineer',es:'Ingeniero frontend'}, note:{en:'International web experiences, content platforms and scalable frontend architecture.',es:'Experiencias web internacionales, plataformas de contenido y arquitectura frontend escalable.'} },
+  { company:'Independent work', period:'2019 — Present', role:{en:'Product & Web Development',es:'Desarrollo de productos y sitios web'}, note:{en:'Independent SaaS products and websites for organizations.',es:'Productos SaaS independientes y sitios web para organizaciones.'} },
+  { company:'Universidad Autónoma del Estado de Morelos', period:'2013 — 2021', role:{en:'Engineering Mathematics Professor',es:'Profesor de matemáticas de ingeniería'}, note:{en:'Calculus, statistics, numerical methods and applied mathematics.',es:'Cálculo, estadística, métodos numéricos y matemáticas aplicadas.'} },
+];

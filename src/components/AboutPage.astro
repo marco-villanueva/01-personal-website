@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Contact from './Contact.astro';
+import { experience } from '../data/experience';
+import { dict, type Locale } from '../lib/paths';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = dict[lang];
+const principles = [
+  {title:t.aboutTeaching,body:t.aboutTeachingText},
+  {title:t.aboutBuild,body:t.aboutBuildText},
+  {title:t.aboutTeams,body:t.aboutTeamsText},
+];
+---
+<BaseLayout lang={lang} path="/about" title={t.aboutTitle} description={t.aboutLead}>
+  <div class="about-page">
+    <header class="container page-heading">
+      <p class="eyebrow">ABOUT / 02 — MARCO VILLANUEVA</p>
+      <h1>{t.aboutTitle}</h1>
+      <p>{t.based}</p>
+    </header>
+    <section class="container section" aria-labelledby="about-lead-heading">
+      <h2 class="about-lead" id="about-lead-heading">{lang === 'en'
+        ? <>I work where <em>interface craft</em>, engineering and product thinking meet.</>
+        : <>Trabajo donde convergen el <em>diseño de interfaces</em>, la ingeniería y el producto.</>}</h2>
+      <div class="about-intro"><p>{t.aboutLead} {t.aboutBody}</p></div>
+    </section>
+    <section class="expertise-section section" aria-labelledby="principles-heading">
+      <div class="container">
+        <div class="eyebrow-row"><span class="eyebrow">01 / {t.aboutFocus}</span><span class="eyebrow">PERSPECTIVE</span></div>
+        <h2 class="expertise-intro" id="principles-heading">{lang === 'en' ? 'How I approach the work.' : 'Mi forma de trabajar.'}</h2>
+        <div class="principles">
+          {principles.map((item,index) => <article class="principle"><span class="principle__num">0{index+1}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}
+        </div>
+      </div>
+    </section>
+    <section class="container section about-experience" aria-labelledby="about-experience-heading">
+      <div class="eyebrow-row"><span class="eyebrow">02 / {t.aboutTimeline}</span><span class="eyebrow">2013 — NOW</span></div>
+      <div class="section-header"><h2 id="about-experience-heading">{t.experience}.</h2><p>{t.experienceIntro}</p></div>
+      <div class="experience-list">
+        {experience.map((item) => <div class="experience-row"><span class="period">{item.period}</span><div><h3>{item.company}</h3><p>{item.role[lang]}</p></div><p>{item.note[lang]}</p></div>)}
+      </div>
+    </section>
+  </div>
+  <Contact lang={lang}/>
+</BaseLayout>

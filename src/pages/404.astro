@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localPath } from '../lib/paths';
+---
+<BaseLayout lang="en" path="/">
+  <section class="container page-heading" style="min-height:65svh">
+    <span class="eyebrow">404 / PAGE NOT FOUND</span>
+    <h1>Page not found.</h1>
+    <p>The page you're looking for isn't here.</p>
+    <a href={localPath('/')} class="text-link" style="margin-top:2rem">Back home <span aria-hidden="true">↗</span></a>
+  </section>
+</BaseLayout>

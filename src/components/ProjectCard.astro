@@ -1,0 +1,20 @@
+---
+import ProjectVisual from './ProjectVisual.astro';
+import { localPath, dict, type Locale } from '../lib/paths';
+import type { Project } from '../data/projects';
+interface Props { project: Project; lang: Locale; featured?: boolean; }
+const { project, lang, featured = false } = Astro.props;
+const t = dict[lang];
+---
+<a class:list={['project-card', { 'project-card--featured': featured }]} href={localPath(`/work/${project.slug}`, lang)} aria-label={`${t.viewProject}: ${project.title}`}>
+  <ProjectVisual project={project} />
+  <div class="project-card__meta eyebrow">
+    <span>{project.number} / {project.category[lang]}</span>
+    <span>{project.year}</span>
+  </div>
+  <div class="project-card__heading">
+    <h3>{project.title}</h3>
+    <span class="round-arrow" aria-hidden="true">↗</span>
+  </div>
+  <p>{project.content[lang].summary}</p>
+</a>

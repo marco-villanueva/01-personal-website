@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from './ProjectCard.astro';
+import Contact from './Contact.astro';
+import { projects } from '../data/projects';
+import { dict, type Locale } from '../lib/paths';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = dict[lang];
+---
+<BaseLayout lang={lang} path="/work" title={t.workTitle} description={t.workIntro}>
+  <div class="work-page">
+    <header class="container page-heading">
+      <p class="eyebrow">INDEX / 01 — {t.selected}</p>
+      <h1>{t.workTitle}</h1>
+      <p>{t.workIntro}</p>
+    </header>
+    <div class="container">
+      <div class="eyebrow-row" style="margin-bottom:2.5rem">
+        <span class="eyebrow">{lang === 'en' ? 'ALL PROJECTS' : 'TODOS LOS PROYECTOS'}</span>
+        <span class="eyebrow">001 — 00{projects.length}</span>
+      </div>
+      <div class="project-grid">
+        {projects.map((project, index) => <ProjectCard project={project} lang={lang} featured={index === 0} />)}
+      </div>
+    </div>
+  </div>
+  <Contact lang={lang}/>
+</BaseLayout>
