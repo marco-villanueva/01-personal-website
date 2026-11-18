@@ -26,11 +26,15 @@ Project information is defined in `src/data/projects.ts`. The website includes E
 
 ## Future /me migration
 
-The Astro `base` option uses `PUBLIC_SITE_BASE`. Build with `PUBLIC_SITE_BASE=/me` to move the whole portfolio under `/me/`. Navigation, hreflang, canonical links and project routes use the shared `localPath()` helper. Update routing, redirects and sitemap when the umbrella project takes over `/`.
+The Astro `base` option uses `PUBLIC_SITE_BASE`. Build with `PUBLIC_SITE_BASE=/me` to move the whole portfolio under `/me/`. Navigation, hreflang, canonical links and project routes use the shared `localPath()` helper. Update routing, redirects, favicon handling and sitemap/robots when the umbrella project takes over `/`.
 
 ## Cloudflare
 
-The project is entirely static: deploy `dist/` to the existing Cloudflare Pages project if desired (build command `npm run build`, build output `dist`, Node 22+). For a new deployment, Cloudflare Workers Static Assets is also suitable; no runtime adapter is required for a static Astro build. Existing production is intentionally untouched until review.
+The project is entirely static. The output folder is `build/` **temporarily**, to match the existing Cloudflare Pages project without altering the old production configuration. Git-connected preview branches can deploy independently from `master`; build command is `npm run build`, output directory `build`, Node 22+.
+
+For a completely new deployment on Cloudflare Workers Static Assets, the output can be changed to `dist/`. No runtime adapter is required for a purely static Astro build.
+
+Existing production is intentionally untouched until the draft PR is approved.
 
 ## Before publication
 
