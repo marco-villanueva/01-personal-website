@@ -15,7 +15,7 @@ npm run build
 
 ## Content
 
-Project information is defined in `src/data/projects.ts`. The website includes English and Spanish pages. Use only verified, publicly shareable information and images. The current visual covers are editorial compositions created with CSS, **not real product screenshots**.
+Eight project entries are curated in `src/data/projects.ts`. The website includes English and Spanish pages. Use only verified, publicly shareable information and images. The public-facing entries use screenshots captured from the five sites explicitly supplied by the portfolio owner on November 18, 2026. Private projects retain editorial CSS artwork. Screenshots show current public websites, and may not reflect the work-period release. The CeriFi screenshot depicts its corporate homepage as brand context; the documented engineering work was on an educational authoring application.
 
 ## Routes
 
@@ -39,7 +39,7 @@ Existing production is intentionally untouched until the draft PR is approved.
 ## Before publication
 
 - Confirm that the contact email and professional profiles remain preferred; they were checked against the previously public website.
-- Confirm case-study descriptions with relevant employers and clients.
-- Add authorized real screenshots under `public/projects/` and wire them into the project data.
+- Confirm case-study descriptions with relevant employers and clients, especially the distinction between NBCUniversal work and its current public website.
+- Confirm publication permissions for external brands' screenshots and replace or remove any asset as needed.
 - Replace downloadable résumé with a current version if included.
 - Run `npm run check && npm run build`; review desktop/mobile and accessibility.

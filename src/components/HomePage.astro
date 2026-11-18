@@ -39,14 +39,14 @@ const focus = [
     <div class="container">
       <div class="eyebrow-row">
         <span class="eyebrow">01 / {t.selected}</span>
-        <span class="eyebrow">2024 — 2026</span>
+        <span class="eyebrow">2021 — 2026</span>
       </div>
       <div class="section-header">
         <h2 id="selected-heading">{lang === 'en' ? 'The work.' : 'El trabajo.'}</h2>
         <p>{t.workIntro}</p>
       </div>
       <div class="project-grid">
-        {projects.slice(0, 3).map((project, index) => <ProjectCard project={project} lang={lang} featured={index === 0} />)}
+        {projects.slice(0, 5).map((project, index) => <ProjectCard project={project} lang={lang} featured={index === 0} />)}
       </div>
       <div class="section-footer">
         <a class="text-link" href={localPath('/work',lang)}>{t.allWork}<span aria-hidden="true">↗</span></a>

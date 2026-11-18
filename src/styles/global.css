@@ -108,6 +108,13 @@
   .hero__scroll:hover .arrow-down { transform: translateY(4px); }
   .hero__rule { margin-top: 2.5rem; border-top: 1px solid var(--line); }
 
+  /* Public-site screenshots are displayed without synthetic brand artwork. */
+  .project-art--real { display: block; padding: 0; background: #e4e8e4; }
+  .project-art--real::before, .project-art--real::after { content: none; }
+  .project-art--real .art__image { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top center; transition: transform .55s cubic-bezier(.2,.7,.1,1); }
+  .project-card:hover .project-art--real .art__image { transform: scale(1.025); }
+  .case-hero .project-art--real .art__image { object-fit: cover; object-position: center top; }
+
   /* Projects */
   .project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: clamp(1rem, 3vw, 3.5rem); row-gap: clamp(4rem, 8vw, 8rem); }
   .project-grid > :first-child.project-card--featured { grid-column: span 2; }
