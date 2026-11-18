@@ -38,7 +38,7 @@ Existing production is intentionally untouched until the draft PR is approved.
 
 ## Before publication
 
-- Verify contact email and professional profiles.
+- Confirm that the contact email and professional profiles remain preferred; they were checked against the previously public website.
 - Confirm case-study descriptions with relevant employers and clients.
 - Add authorized real screenshots under `public/projects/` and wire them into the project data.
 - Replace downloadable résumé with a current version if included.
