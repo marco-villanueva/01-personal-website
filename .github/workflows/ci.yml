@@ -1,0 +1,20 @@
+name: Quality checks
+on:
+  push:
+    branches: [master, feat/editorial-portfolio-2027]
+  pull_request:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Type and Astro checks
+        run: npm run check
+      - name: Build static website
+        run: npm run build

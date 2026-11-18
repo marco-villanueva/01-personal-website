@@ -1,0 +1,16 @@
+---
+import { dict, type Locale } from '../lib/paths';
+interface Props { lang: Locale; id?: string; }
+const { lang, id = 'contact' } = Astro.props;
+const t = dict[lang];
+---
+<section class="contact-band" id={id}>
+  <div class="container contact-band__inner">
+    <div class="eyebrow"><span class="tiny-mark" aria-hidden="true"></span>{t.contactLabel}</div>
+    <h2>{t.contactTitle}</h2>
+    <a class="contact-band__link" href="https://github.com/marco-villanueva" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+      GitHub <span aria-hidden="true">↗</span>
+    </a>
+    <p class="contact-band__note">{lang === 'en' ? 'For collaboration and professional inquiries, reach out through my public GitHub profile.' : 'Para colaboraciones y oportunidades profesionales, puedes contactarme desde mi perfil público de GitHub.'}</p>
+  </div>
+</section>

@@ -1,0 +1,115 @@
+---
+import '../styles/global.css';
+import { dict, localPath, absolutePath, otherLocalePath, type Locale } from '../lib/paths';
+interface Props {
+  lang: Locale;
+  path?: string;
+  title?: string;
+  description?: string;
+}
+const { lang, path = '/', title, description } = Astro.props;
+const t = dict[lang];
+const pageTitle = title ? `${title} | Marco Villanueva` : 'Marco Villanueva | Frontend & Fullstack Software Engineer';
+const pageDescription = description || (lang === 'en'
+  ? 'Portfolio of Marco Villanueva. Frontend engineering, web architecture, digital experiences and SaaS products.'
+  : 'Portafolio de Marco Villanueva. Ingeniería frontend, arquitectura web, experiencias digitales y productos SaaS.');
+const canonical = absolutePath(path, lang);
+const other = absolutePath(path, lang === 'en' ? 'es' : 'en');
+const activeSection = path.startsWith('/work') ? 'work' : path.startsWith('/about') ? 'about' : 'home';
+const socialSchema = {
+  '@context': 'https://schema.org', '@type': 'Person',
+  name: 'Marco Villanueva',
+  url: 'https://marcovillanueva.com',
+  jobTitle: 'Software Engineer',
+  sameAs: ['https://github.com/marco-villanueva'],
+};
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f1e9" />
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="Marco Villanueva" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Marco Villanueva" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang === 'en' ? 'es' : 'en'} href={other} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={absolutePath(path, 'en')} />
+    <link rel="icon" type="image/svg+xml" href={localPath('/favicon.svg')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify(socialSchema)} />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      try {
+        const choice = localStorage.getItem('mv-theme');
+        if (choice === 'dark' || choice === 'light') document.documentElement.dataset.theme = choice;
+      } catch (_) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{lang === 'en' ? 'Skip to content' : 'Ir al contenido'}</a>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href={localPath('/',lang)} aria-label={t.navHome + ' · Marco Villanueva'}>mv<span>.</span></a>
+        <nav class="desktop-nav" aria-label={lang === 'en' ? 'Main navigation' : 'Navegación principal'}>
+          <a class:list={{active:activeSection === 'work'}} href={localPath('/work',lang)} aria-current={activeSection === 'work' ? 'page' : undefined}>{t.navWork}</a>
+          <a class:list={{active:activeSection === 'about'}} href={localPath('/about',lang)} aria-current={activeSection === 'about' ? 'page' : undefined}>{t.navAbout}</a>
+          <a href="#contact">{t.navContact}</a>
+        </nav>
+        <div class="header-actions">
+          <a class="language-link" href={otherLocalePath(path,lang)} lang={lang === 'en' ? 'es' : 'en'} aria-label={lang === 'en' ? 'Ver sitio en español' : 'View site in English'}>{lang === 'en' ? 'ES' : 'EN'}</a>
+          <button class="theme-toggle" type="button" aria-label={lang === 'en' ? 'Toggle color theme' : 'Cambiar tema de color'} title={lang === 'en' ? 'Toggle color theme' : 'Cambiar tema'} data-theme-toggle>
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.6m0 15.8v2.6M1.5 12h2.6m15.8 0h2.6M4.5 4.5l1.9 1.9m11.2 11.2 1.9 1.9m0-15-1.9 1.9M6.4 17.6l-1.9 1.9"/></svg>
+          </button>
+        </div>
+        <details class="mobile-menu">
+          <summary aria-label={lang === 'en' ? 'Open navigation menu' : 'Abrir menú de navegación'}><span></span><span></span></summary>
+          <nav aria-label={lang === 'en' ? 'Mobile navigation' : 'Navegación móvil'}>
+            <a href={localPath('/',lang)}>{t.navHome}</a>
+            <a href={localPath('/work',lang)}>{t.navWork}</a>
+            <a href={localPath('/about',lang)}>{t.navAbout}</a>
+            <a href="#contact">{t.navContact}</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <a class="brand" href={localPath('/',lang)}>mv<span>.</span></a>
+        <span>{t.footerNote}</span>
+        <div class="footer-links">
+          <a href="https://github.com/marco-villanueva" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href={localPath('/work',lang)}>{t.navWork}</a>
+          <a href={localPath('/about',lang)}>{t.navAbout}</a>
+        </div>
+        <span class="copyright">© {new Date().getFullYear()} Marco Villanueva</span>
+      </div>
+    </footer>
+    <script is:inline>
+      document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const current = document.documentElement.dataset.theme;
+          const next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = next;
+          try { localStorage.setItem('mv-theme', next); } catch (_) {}
+        });
+      });
+      document.querySelectorAll('.mobile-menu a').forEach((link) => {
+        link.addEventListener('click', () => {
+          const menu = link.closest('details');
+          if (menu) menu.open = false;
+        });
+      });
+    </script>
+  </body>
+</html>

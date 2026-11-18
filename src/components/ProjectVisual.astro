@@ -1,0 +1,24 @@
+---
+import type { Project } from '../data/projects';
+interface Props { project: Project; }
+const { project } = Astro.props;
+---
+<div class={`project-art art--${project.visual}`} aria-hidden="true">
+  <span class="art__index">{project.number} / MV·WORKS</span>
+  <div class="art__inner">
+    {project.visual === 'juridico' && (
+      <div class="art__dashboard">
+        <div class="art__bar"><i></i><i></i><i></i></div>
+        <div class="art__dashboard-content">
+          <div class="art__side"><b></b><b></b><b></b><b></b></div>
+          <div class="art__main"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    )}
+    {project.visual === 'aquarabia' && <span class="art__orb"></span>}
+    {project.visual === 'prometeo' && <span class="art__grid" />}
+    <span class="art__name">{project.visualTitle.split('\n').map((line) => <span>{line}</span>)}</span>
+    <span class="art__tag">{project.category.en}</span>
+  </div>
+  <span class="art__bottom">{project.company}</span>
+</div>
