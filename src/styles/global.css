@@ -111,7 +111,7 @@
   /* Projects */
   .project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: clamp(1rem, 3vw, 3.5rem); row-gap: clamp(4rem, 8vw, 8rem); }
   .project-grid > :first-child.project-card--featured { grid-column: span 2; }
-  .project-card { min-width: 0; display: block; }
+  .project-card { min-width: 0; display: block; container-type: inline-size; container-name: project-card; }
   .project-art { height: auto; aspect-ratio: 1.28 / 1; width: 100%; overflow: hidden; position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; padding: clamp(1.25rem, 2.3vw, 3rem); background: #23483d; color: #f4f1e9; transition: filter .45s ease; }
   .project-card--featured .project-art { aspect-ratio: 2.15 / 1; }
   .project-art::before, .project-art::after { content: ''; position: absolute; z-index: -1; pointer-events: none; transition: transform .7s cubic-bezier(.2,.75,.1,1); }
@@ -182,7 +182,7 @@
   .contact-band__inner { padding-block: clamp(5rem, 10vw, 10rem); }
   .contact-band .eyebrow { color: color-mix(in srgb,var(--inverse-ink), transparent 35%); }
   .contact-band h2 { max-width: 1100px; font-size: clamp(3.6rem, 8.5vw, 10rem); line-height: .98; margin-top: clamp(2rem, 5vw, 5rem); }
-  .contact-band__link { display: inline-flex; gap: 2.5rem; align-items: center; font-size: clamp(1.2rem, 2vw, 2rem); border-bottom: 1px solid currentColor; margin-top: clamp(3rem, 5vw, 5rem); padding-bottom: .4rem; }
+  .contact-band__link { overflow-wrap: anywhere; max-width: 100%; display: inline-flex; gap: 2.5rem; align-items: center; font-size: clamp(1.2rem, 2vw, 2rem); border-bottom: 1px solid currentColor; margin-top: clamp(3rem, 5vw, 5rem); padding-bottom: .4rem; }
   .contact-band__link span { transition: transform .25s ease; }
   .contact-band__link:hover span { transform: translate(4px,-4px); }
   .contact-band__note { max-width: 35rem; margin-top: 1rem; font-size: .85rem; opacity: .65; }
@@ -228,6 +228,15 @@
   .principle h3 { margin-top: 2.5rem; font-size: clamp(1.55rem,2.8vw,2.8rem); }
   .principle p { margin-top: 1.2rem; color: var(--muted); font-size: .95rem; }
   .about-experience { padding-bottom: 8rem; }
+
+  /* Native container queries and relational states are progressive enhancements. */
+  @container project-card (max-width: 32rem) {
+    .art__name { font-size: clamp(2.25rem, 10cqw, 4.5rem); }
+    .art__dashboard { opacity: .6; }
+  }
+  @supports selector(.site-header:has(.mobile-menu[open])) {
+    .site-header:has(.mobile-menu[open]) { background: var(--paper); }
+  }
 
   /* Accessibility / enhancements */
   @view-transition { navigation: auto; }
@@ -294,6 +303,7 @@
     .about-teaser__grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .about-teaser__grid h2 { font-size: clamp(2.3rem, 8vw, 4rem); }
     .contact-band h2 { font-size: clamp(3.25rem, 11.5vw, 6rem); }
+    .contact-band__link { font-size: clamp(.95rem, 3.8vw, 1.25rem); gap: 1rem; }
     .page-heading { padding-block: 4rem 3rem; }
     .page-heading .eyebrow { margin-bottom: 1.5rem; }
     .case-head { padding-top: 2.5rem; }
